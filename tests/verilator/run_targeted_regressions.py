@@ -59,6 +59,30 @@ TESTS = [
         "check_signature": True,
     },
     {
+        "name": "ym7101_vector",
+        "top": "tb_ym7101_vector",
+        "tb": ROOT / "tests" / "verilator" / "regressions" / "tb_ym7101_vector.sv",
+        "check_signature": True,
+    },
+    {
+        "name": "m68k_vector",
+        "top": "tb_m68k_vector",
+        "tb": ROOT / "tests" / "verilator" / "regressions" / "tb_m68k_vector.sv",
+        "check_signature": True,
+    },
+    {
+        "name": "ym6045_vector",
+        "top": "tb_ym6045_vector",
+        "tb": ROOT / "tests" / "verilator" / "regressions" / "tb_ym6045_vector.sv",
+        "check_signature": True,
+    },
+    {
+        "name": "z80_bus_vector",
+        "top": "tb_z80_bus_vector",
+        "tb": ROOT / "tests" / "verilator" / "regressions" / "tb_z80_bus_vector.sv",
+        "check_signature": True,
+    },
+    {
         "name": "md_board_cart_vector",
         "top": "tb_md_board_cart_vector",
         "tb": ROOT / "tests" / "verilator" / "regressions" / "tb_md_board_cart_vector.sv",

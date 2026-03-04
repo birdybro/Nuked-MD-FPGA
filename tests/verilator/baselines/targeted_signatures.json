@@ -1,6 +1,10 @@
 {
+  "m68k_vector": "9e4773efd1ca2f12",
   "md_board_cart_vector": "579eff2484f2c1cc",
   "tmss_vector": "b8b256eb00a3c169",
   "ym3438_io_vector": "f09b9e1f47601b99",
-  "ym6046_vector": "038b68f121f433e6"
+  "ym6045_vector": "529a82babe48dd22",
+  "ym6046_vector": "6977ff95ab10def7",
+  "ym7101_vector": "d2bb61759b71d0ab",
+  "z80_bus_vector": "c3f9575a47127e03"
 }

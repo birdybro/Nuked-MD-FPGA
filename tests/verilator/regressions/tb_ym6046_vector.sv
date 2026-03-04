@@ -2,7 +2,7 @@
 
 module tb_ym6046_vector;
   localparam integer VEC_WIDTH = 73;
-  localparam integer VEC_COUNT = 192;
+  localparam integer VEC_COUNT = 384;
 
   logic MCLK;
   logic [6:0] PORT_A_i;

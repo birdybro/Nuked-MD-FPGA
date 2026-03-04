@@ -92,5 +92,10 @@ python3 tests/verilator/coverage_hotspots.py tests/verilator/targeted_out/covera
   - `ym3438_prescaler_assert`
   - `ym3438_io_vector`
   - `tmss_bus_transaction`
+  - `tmss_vector`
   - `ym6046_vector`
+  - `ym7101_vector`
+  - `m68k_vector`
+  - `ym6045_vector`
+  - `z80_bus_vector`
   - `md_board_cart_vector`
