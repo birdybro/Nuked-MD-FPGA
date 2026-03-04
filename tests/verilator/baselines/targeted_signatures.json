@@ -1,4 +1,5 @@
 {
+  "m68k_exceptions_vector": "c8bbd88f63ded7ac",
   "m68k_vector": "9e4773efd1ca2f12",
   "md_board_cart_vector": "579eff2484f2c1cc",
   "tmss_vector": "b8b256eb00a3c169",

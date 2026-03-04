@@ -77,6 +77,12 @@ TESTS = [
         "check_signature": True,
     },
     {
+        "name": "m68k_exceptions_vector",
+        "top": "tb_m68k_exceptions_vector",
+        "tb": ROOT / "tests" / "verilator" / "regressions" / "tb_m68k_exceptions_vector.sv",
+        "check_signature": True,
+    },
+    {
         "name": "ym6045_vector",
         "top": "tb_ym6045_vector",
         "tb": ROOT / "tests" / "verilator" / "regressions" / "tb_ym6045_vector.sv",
