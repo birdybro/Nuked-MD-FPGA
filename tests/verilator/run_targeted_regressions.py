@@ -83,6 +83,12 @@ TESTS = [
         "check_signature": True,
     },
     {
+        "name": "z80_instr_vector",
+        "top": "tb_z80_instr_vector",
+        "tb": ROOT / "tests" / "verilator" / "regressions" / "tb_z80_instr_vector.sv",
+        "check_signature": True,
+    },
+    {
         "name": "md_board_cart_vector",
         "top": "tb_md_board_cart_vector",
         "tb": ROOT / "tests" / "verilator" / "regressions" / "tb_md_board_cart_vector.sv",

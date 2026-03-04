@@ -6,5 +6,6 @@
   "ym6045_vector": "529a82babe48dd22",
   "ym6046_vector": "6977ff95ab10def7",
   "ym7101_vector": "d2bb61759b71d0ab",
-  "z80_bus_vector": "c3f9575a47127e03"
+  "z80_bus_vector": "c3f9575a47127e03",
+  "z80_instr_vector": "549b52e73240bf87"
 }
