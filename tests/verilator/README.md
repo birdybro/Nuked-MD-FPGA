@@ -67,6 +67,12 @@ Run one targeted test:
 python3 tests/verilator/run_targeted_regressions.py --test ym6046_vector
 ```
 
+Show top uncovered files from merged targeted coverage:
+
+```bash
+python3 tests/verilator/coverage_hotspots.py tests/verilator/targeted_out/coverage/merged.dat --top 20
+```
+
 ## Output layout
 
 - Generated testbenches: `tests/verilator/out/tb/`

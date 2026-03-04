@@ -47,6 +47,12 @@ TESTS = [
         "check_signature": False,
     },
     {
+        "name": "tmss_vector",
+        "top": "tb_tmss_vector",
+        "tb": ROOT / "tests" / "verilator" / "regressions" / "tb_tmss_vector.sv",
+        "check_signature": True,
+    },
+    {
         "name": "ym6046_vector",
         "top": "tb_ym6046_vector",
         "tb": ROOT / "tests" / "verilator" / "regressions" / "tb_ym6046_vector.sv",

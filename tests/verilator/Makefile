@@ -2,7 +2,7 @@ PYTHON ?= python3
 RUNNER := run_verilator_tests.py
 TARGETED := run_targeted_regressions.py
 
-.PHONY: list smoke full targeted targeted-update targeted-list clean
+.PHONY: list smoke full targeted targeted-update targeted-list targeted-hotspots clean
 
 list:
 	$(PYTHON) $(RUNNER) --list-modules
@@ -21,6 +21,9 @@ targeted-update:
 
 targeted-list:
 	$(PYTHON) $(TARGETED) --list
+
+targeted-hotspots:
+	$(PYTHON) coverage_hotspots.py targeted_out/coverage/merged.dat --top 20
 
 clean:
 	rm -rf tests/verilator/out tests/verilator/targeted_out
