@@ -1,0 +1,8 @@
+# Verilator generated outputs (build artifacts, logs, coverage)
+tests/verilator/out/
+tests/verilator/targeted_out/
+
+# Common waveform/coverage artifacts
+*.vcd
+*.fst
+*.dat
