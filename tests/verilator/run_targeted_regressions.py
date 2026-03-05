@@ -83,6 +83,12 @@ TESTS = [
         "check_signature": False,
     },
     {
+        "name": "ym7101_dma_edge_assert",
+        "top": "tb_ym7101_dma_edge_assert",
+        "tb": ROOT / "tests" / "verilator" / "regressions" / "tb_ym7101_dma_edge_assert.sv",
+        "check_signature": False,
+    },
+    {
         "name": "m68k_vector",
         "top": "tb_m68k_vector",
         "tb": ROOT / "tests" / "verilator" / "regressions" / "tb_m68k_vector.sv",
@@ -98,6 +104,12 @@ TESTS = [
         "name": "m68k_bus_arb_assert",
         "top": "tb_m68k_bus_arb_assert",
         "tb": ROOT / "tests" / "verilator" / "regressions" / "tb_m68k_bus_arb_assert.sv",
+        "check_signature": False,
+    },
+    {
+        "name": "m68k_irq_entry_assert",
+        "top": "tb_m68k_irq_entry_assert",
+        "tb": ROOT / "tests" / "verilator" / "regressions" / "tb_m68k_irq_entry_assert.sv",
         "check_signature": False,
     },
     {
