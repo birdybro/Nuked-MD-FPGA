@@ -96,6 +96,7 @@ python3 tests/verilator/coverage_hotspots.py tests/verilator/targeted_out/covera
   - `ym6046_vector`
   - `ym7101_vector`
   - `ym7101_dma_vector`
+  - `ym7101_stress_assert`
   - `m68k_vector`
   - `m68k_exceptions_vector`
   - `ym6045_vector`

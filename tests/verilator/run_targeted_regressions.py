@@ -71,6 +71,12 @@ TESTS = [
         "check_signature": True,
     },
     {
+        "name": "ym7101_stress_assert",
+        "top": "tb_ym7101_stress_assert",
+        "tb": ROOT / "tests" / "verilator" / "regressions" / "tb_ym7101_stress_assert.sv",
+        "check_signature": False,
+    },
+    {
         "name": "m68k_vector",
         "top": "tb_m68k_vector",
         "tb": ROOT / "tests" / "verilator" / "regressions" / "tb_m68k_vector.sv",
