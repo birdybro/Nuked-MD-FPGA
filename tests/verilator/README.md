@@ -97,8 +97,10 @@ python3 tests/verilator/coverage_hotspots.py tests/verilator/targeted_out/covera
   - `ym7101_vector`
   - `ym7101_dma_vector`
   - `ym7101_stress_assert`
+  - `ym7101_dma_arb_assert`
   - `m68k_vector`
   - `m68k_exceptions_vector`
+  - `m68k_bus_arb_assert`
   - `ym6045_vector`
   - `z80_bus_vector`
   - `z80_instr_vector`

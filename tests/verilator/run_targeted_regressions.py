@@ -77,6 +77,12 @@ TESTS = [
         "check_signature": False,
     },
     {
+        "name": "ym7101_dma_arb_assert",
+        "top": "tb_ym7101_dma_arb_assert",
+        "tb": ROOT / "tests" / "verilator" / "regressions" / "tb_ym7101_dma_arb_assert.sv",
+        "check_signature": False,
+    },
+    {
         "name": "m68k_vector",
         "top": "tb_m68k_vector",
         "tb": ROOT / "tests" / "verilator" / "regressions" / "tb_m68k_vector.sv",
@@ -87,6 +93,12 @@ TESTS = [
         "top": "tb_m68k_exceptions_vector",
         "tb": ROOT / "tests" / "verilator" / "regressions" / "tb_m68k_exceptions_vector.sv",
         "check_signature": True,
+    },
+    {
+        "name": "m68k_bus_arb_assert",
+        "top": "tb_m68k_bus_arb_assert",
+        "tb": ROOT / "tests" / "verilator" / "regressions" / "tb_m68k_bus_arb_assert.sv",
+        "check_signature": False,
     },
     {
         "name": "ym6045_vector",
