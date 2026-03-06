@@ -144,6 +144,7 @@ make -C tests/verilator targeted-roi-gate
   - `m68k_irq_entry_assert`
   - `m68k_irq_force_assert`
   - `ym6045_vector`
+  - `z80_irq_force_assert`
   - `z80_bus_vector`
   - `z80_instr_vector`
   - `md_board_cart_vector`

@@ -131,6 +131,12 @@ TESTS = [
         "check_signature": True,
     },
     {
+        "name": "z80_irq_force_assert",
+        "top": "tb_z80_irq_force_assert",
+        "tb": ROOT / "tests" / "verilator" / "regressions" / "tb_z80_irq_force_assert.sv",
+        "check_signature": False,
+    },
+    {
         "name": "z80_bus_vector",
         "top": "tb_z80_bus_vector",
         "tb": ROOT / "tests" / "verilator" / "regressions" / "tb_z80_bus_vector.sv",

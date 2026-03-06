@@ -110,18 +110,18 @@ module tb_z80_instr_vector;
         6'h31: stream_byte = 8'h7f;
         6'h32: stream_byte = 8'hdb; // in a,(n)
         6'h33: stream_byte = 8'h7f;
-        6'h34: stream_byte = 8'h18; // jr e
-        6'h35: stream_byte = 8'h02;
-        6'h36: stream_byte = 8'h00; // nop
-        6'h37: stream_byte = 8'h00; // nop
-        6'h38: stream_byte = 8'h20; // jr nz,e
-        6'h39: stream_byte = 8'h02;
-        6'h3a: stream_byte = 8'h28; // jr z,e
-        6'h3b: stream_byte = 8'h02;
-        6'h3c: stream_byte = 8'h10; // djnz e
-        6'h3d: stream_byte = 8'hfe; // tight loop
-        6'h3e: stream_byte = 8'hc3; // jp nn
-        6'h3f: stream_byte = (phase == 2'b00) ? 8'h00 : ((phase == 2'b01) ? 8'h20 : ((phase == 2'b10) ? 8'h40 : 8'h60));
+        6'h34: stream_byte = 8'hdd; // ix prefix
+        6'h35: stream_byte = 8'h21; // ld ix,nn
+        6'h36: stream_byte = 8'h10;
+        6'h37: stream_byte = 8'h20;
+        6'h38: stream_byte = 8'hfd; // iy prefix
+        6'h39: stream_byte = 8'h21; // ld iy,nn
+        6'h3a: stream_byte = 8'h20;
+        6'h3b: stream_byte = 8'h30;
+        6'h3c: stream_byte = 8'hed; // block/interrupt mode ops
+        6'h3d: stream_byte = (phase[0]) ? 8'hb0 : 8'h56; // ldir / im 1
+        6'h3e: stream_byte = 8'hcb; // cb-prefixed bit op
+        6'h3f: stream_byte = (phase == 2'b00) ? 8'h7c : ((phase == 2'b01) ? 8'hbe : ((phase == 2'b10) ? 8'he6 : 8'h16));
         default: stream_byte = 8'h00;
       endcase
     end
