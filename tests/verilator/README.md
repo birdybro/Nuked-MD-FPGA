@@ -73,6 +73,44 @@ Show top uncovered files from merged targeted coverage:
 python3 tests/verilator/coverage_hotspots.py tests/verilator/targeted_out/coverage/merged.dat --top 20
 ```
 
+Compare hotspot deltas between two merged coverage datasets:
+
+```bash
+python3 tests/verilator/hotspot_delta.py /tmp/targeted_before.dat tests/verilator/targeted_out/coverage/merged.dat
+```
+
+Gate ROI (fail if none of `ym7101.v` / `68k.v` / `z80.v` improve):
+
+```bash
+python3 tests/verilator/hotspot_roi_gate.py /tmp/targeted_before.dat tests/verilator/targeted_out/coverage/merged.dat
+```
+
+Reproduce the CI ROI check locally (`HEAD~1` baseline vs current `HEAD`):
+
+```bash
+tmp_prev=$(mktemp -d /tmp/nuked-prev-XXXXXX)
+git worktree add "$tmp_prev" HEAD~1
+(
+  cd "$tmp_prev"
+  python3 tests/verilator/run_targeted_regressions.py --clean
+  cp tests/verilator/targeted_out/coverage/merged.dat /tmp/targeted_before_head_prev.dat
+)
+python3 tests/verilator/run_targeted_regressions.py --clean
+python3 tests/verilator/hotspot_roi_gate.py \
+  /tmp/targeted_before_head_prev.dat \
+  tests/verilator/targeted_out/coverage/merged.dat \
+  --file ym7101.v --file 68k.v --file z80.v
+git worktree remove "$tmp_prev"
+rmdir "$tmp_prev" 2>/dev/null || true
+```
+
+Makefile helpers for ROI workflow:
+
+```bash
+make -C tests/verilator targeted-snapshot
+make -C tests/verilator targeted-roi-gate
+```
+
 ## Output layout
 
 - Generated testbenches: `tests/verilator/out/tb/`
@@ -99,10 +137,12 @@ python3 tests/verilator/coverage_hotspots.py tests/verilator/targeted_out/covera
   - `ym7101_stress_assert`
   - `ym7101_dma_arb_assert`
   - `ym7101_dma_edge_assert`
+  - `ym7101_cachepaths_force_assert`
   - `m68k_vector`
   - `m68k_exceptions_vector`
   - `m68k_bus_arb_assert`
   - `m68k_irq_entry_assert`
+  - `m68k_irq_force_assert`
   - `ym6045_vector`
   - `z80_bus_vector`
   - `z80_instr_vector`

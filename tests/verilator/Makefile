@@ -25,5 +25,11 @@ targeted-list:
 targeted-hotspots:
 	$(PYTHON) coverage_hotspots.py targeted_out/coverage/merged.dat --top 20
 
+targeted-snapshot:
+	cp targeted_out/coverage/merged.dat /tmp/targeted_before.dat
+
+targeted-roi-gate:
+	$(PYTHON) hotspot_roi_gate.py /tmp/targeted_before.dat targeted_out/coverage/merged.dat
+
 clean:
 	rm -rf tests/verilator/out tests/verilator/targeted_out

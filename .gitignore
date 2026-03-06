@@ -6,3 +6,7 @@ tests/verilator/targeted_out/
 *.vcd
 *.fst
 *.dat
+
+# Python cache artifacts
+__pycache__/
+*.pyc

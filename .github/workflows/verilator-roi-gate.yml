@@ -1,0 +1,46 @@
+name: Verilator ROI Gate
+
+on:
+  workflow_dispatch:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  roi-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Install Verilator
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y verilator
+
+      - name: Build Baseline Coverage (HEAD~1)
+        shell: bash
+        run: |
+          if ! git rev-parse --verify HEAD~1 >/dev/null 2>&1; then
+            echo "No parent commit available; skipping ROI gate."
+            exit 0
+          fi
+          git checkout HEAD~1
+          python3 tests/verilator/run_targeted_regressions.py --clean
+          cp tests/verilator/targeted_out/coverage/merged.dat /tmp/targeted_before_ci.dat
+
+      - name: Build Current Coverage (HEAD)
+        shell: bash
+        run: |
+          git checkout -
+          python3 tests/verilator/run_targeted_regressions.py --clean
+
+      - name: ROI Gate
+        run: |
+          python3 tests/verilator/hotspot_roi_gate.py \
+            /tmp/targeted_before_ci.dat \
+            tests/verilator/targeted_out/coverage/merged.dat \
+            --file ym7101.v --file 68k.v --file z80.v

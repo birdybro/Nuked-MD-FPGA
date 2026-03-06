@@ -41,8 +41,13 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Compare per-file uncovered coverage marker deltas")
     parser.add_argument("before_dat", help="Older merged coverage .dat")
     parser.add_argument("after_dat", help="Newer merged coverage .dat")
-    parser.add_argument("--file", action="append", dest="files", default=["ym7101.v", "68k.v", "z80.v"],
-                        help="File basename(s) to report; may be passed multiple times")
+    parser.add_argument(
+        "--file",
+        action="append",
+        dest="files",
+        default=None,
+        help="File basename(s) to report; may be passed multiple times",
+    )
     parser.add_argument("--before-dir", default="/tmp/vcov_delta_before", help="Temporary annotate dir for before")
     parser.add_argument("--after-dir", default="/tmp/vcov_delta_after", help="Temporary annotate dir for after")
     args = parser.parse_args()
@@ -56,6 +61,9 @@ def main() -> int:
         print(f"Missing after coverage file: {after_dat}")
         return 2
 
+    files = args.files or ["ym7101.v", "68k.v", "z80.v"]
+    files = list(dict.fromkeys(files))
+
     before_dir = Path(args.before_dir)
     after_dir = Path(args.after_dir)
     annotate(before_dat, before_dir)
@@ -66,7 +74,7 @@ def main() -> int:
 
     print("File delta (negative uncovered delta is improvement):")
     print("file before_uncovered after_uncovered delta_uncovered before_cov% after_cov%")
-    for name in args.files:
+    for name in files:
         b_zero, b_total = before.get(name, (0, 0))
         a_zero, a_total = after.get(name, (0, 0))
         b_cov = b_total - b_zero
